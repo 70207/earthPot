@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>
+earth pot
+</title>
+<meta charset="utf-8">
+<script src="../src/js/earth.js" ></script>
+<script type="text/javascript">
+    var pos = {x:0,y:50};
+    var size = {w:1000,h:600};
+    var linkSpeed = 20;
+    var earth = null;
+
+    function myEarth(){
+        earth = new createEarth("myView", pos, size, linkSpeed);
+    }
+
+    function sti(id){
+        return Number($$(id));
+    }
+
+    function init(){
+        earth.setBGC("#22ffdd");
+    }
+
+
+    function testPot(){
+        var pos = {};
+        var size = {w:60, h:60};
+
+        var id = "101";
+        var title="service";
+        pos.x = 100;
+        pos.y = 300;
+        earth.newPot(id, title, pos, size);
+
+        pos.x = 700;
+        pos.y = 200;
+        id = "23";
+        title = "server";
+        earth.newPot(id, title, pos, size);
+
+
+        pos.x = 400;
+        pos.y = 30;
+        id = "33";
+        title="server";
+        earth.newPot(id, title, pos, size);
+
+
+        id = "43";
+        title="server";
+        pos.x =  400;
+        pos.y = 500;
+        earth.newPot(id, title, pos, size);
+
+
+
+        
+    }
+
+</script>
+
+</head>
+<body>
+<h1>
+    this is a pot of earth
+</h1>
+<canvas id="myView" width="1000px" height="600px" >
+</canvas>
+
+<script type="text/javascript">
+var mv = document.getElementById("myView");
+myEarth();
+init();
+testPot();
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>
+earth pot
+</title>
+<meta charset="utf-8">
+<script src="../src/js/earth.js" ></script>
+<script type="text/javascript">
+    var pos = {x:0,y:50};
+    var size = {w:1000,h:600};
+    var linkSpeed = 20;
+    var earth = null;
+
+    function myEarth(){
+        earth = new createEarth("myView", pos, size, linkSpeed);
+    }
+
+    function sti(id){
+        return Number($$(id));
+    }
+
+    function init(){
+        earth.setBGC("#22ffdd");
+    }
+    function newPot(){
+        var _nx = sti("_nx");
+        var _ny = sti("_ny");
+        var _ntitle = $$("_ntitle");
+        var _nw = 60;
+        var _nh = 60;    
+
+        //console.log("x:%d, y:%d, w:%d, h:%d", _nx, _ny, _nw, _nh);
+
+        var _id = $$("_nid");
+        var pos = {x:_nx, y:_ny};
+        var size = {w:_nw,h:_nh};
+
+        earth.newPot(_id, _ntitle, pos, size);
+    }
+
+
+
+</script>
+
+</head>
+<body>
+<h1>
+    this is a pot of earth
+</h1>
+<div style="position:absolute; left:0px;top:50px;">
+ id:<input type="text" id="_nid" value="hello" style="width:100px;height:20px;"/>
+ title:<input type="text" id="_ntitle" value="pot" style="width:100px;height:20px;"/>
+ x: <input type="text" id="_nx" value="500" style="width:100px;height:20px;"/>
+ y: <input type="text" id="_ny" value="300" style="width:100px;height:20px;"/>
+ <input type="button" value="新增节点" onclick="newPot();" />
+</div>
+
+<canvas id="myView" width="1000px" height="600px" >
+</canvas>
+
+<script type="text/javascript">
+var mv = document.getElementById("myView");
+myEarth();
+init();
+
+</script>
+
+</body>
+
+</html>
